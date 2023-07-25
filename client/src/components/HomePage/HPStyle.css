@@ -1,0 +1,18 @@
+@font-face {
+    font-family: CascadiaCode;
+    src: url(../../assets/font/CascadiaCode.ttf);
+}
+
+h1 {
+    font-family: CascadiaCode;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    margin-left: 1rem;
+}
