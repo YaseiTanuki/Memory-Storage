@@ -1,3 +1,8 @@
+@font-face {
+    font-family: LazyMonday;
+    src: url(../../assets/font/LazyMonday.otf);
+}
+
 .navbar {
     margin: 0;
     padding: 0;
@@ -11,4 +16,14 @@
     padding: 0;
     list-style: none;
     gap: 1rem;
+}
+
+.navbar a {
+    font-family: LazyMonday;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: black;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }

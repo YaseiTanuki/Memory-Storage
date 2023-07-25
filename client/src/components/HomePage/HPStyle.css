@@ -1,10 +1,16 @@
 @font-face {
-    font-family: CascadiaCode;
-    src: url(../../assets/font/CascadiaCode.ttf);
-}
+    font-family: HelloSunday;
+    src: url(../../assets/font/HelloSunday.otf);
+  }
+  
 
-h1 {
-    font-family: CascadiaCode;
+.webname h1 {
+    font-family: HelloSunday;
+    font-size: 7rem;
+    color: black;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
 }
 
 ul {
@@ -15,4 +21,18 @@ ul {
 
 li {
     margin-left: 1rem;
+}
+
+.register {
+    font-size: 2rem;
+    color: black;
+    background-color: white;
+    border-color: black;
+}
+
+.login {
+    font-size: 2rem;
+    color: white;
+    background-color: black;
+    border-color: white;
 }
