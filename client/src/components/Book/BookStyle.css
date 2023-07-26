@@ -1,0 +1,10 @@
+.alpage img {
+    max-width: 480px;
+    max-height: 480px;
+}
+
+.book {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
