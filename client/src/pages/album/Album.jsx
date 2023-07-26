@@ -1,3 +1,9 @@
-export default function Album() {
-    return <h1>Album</h1>
+function Album() {
+    return(
+        <div>
+            Album
+        </div>
+    )
 }
+
+export default Album;

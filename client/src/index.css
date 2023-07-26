@@ -10,7 +10,8 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  background-image: -webkit-image-set(
-    url(./assets/img/bg.jpg) 2x
-  );
+  background-image: linear-gradient(white, #3c59ff);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }

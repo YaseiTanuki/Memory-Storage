@@ -17,6 +17,7 @@ ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 li {
@@ -24,15 +25,19 @@ li {
 }
 
 .register {
+    width: 300px;
     font-size: 2rem;
     color: black;
     background-color: white;
     border-color: black;
+    border-radius: 20px;
 }
 
 .login {
+    width: 300px;
     font-size: 2rem;
     color: white;
     background-color: black;
     border-color: white;
+    border-radius: 20px;
 }

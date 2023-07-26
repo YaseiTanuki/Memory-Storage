@@ -1,0 +1,9 @@
+.product {
+    width: 25vw;
+    height: 50vh;
+}
+
+.product img {
+    margin: auto;
+    width: 30%;
+}

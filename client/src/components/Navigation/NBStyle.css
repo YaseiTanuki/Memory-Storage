@@ -1,4 +1,9 @@
 @font-face {
+    font-family: PublicSans;
+    src: url(../../assets/font/PublicSans.ttf);
+}
+
+@font-face {
     font-family: LazyMonday;
     src: url(../../assets/font/LazyMonday.otf);
 }
@@ -8,9 +13,12 @@
     padding: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .navbar ul {
+    font-family: PublicSans;
+    font-size: 1rem;
     display: flex;
     margin: 0;
     padding: 0;
@@ -19,11 +27,11 @@
 }
 
 .navbar a {
-    font-family: LazyMonday;
-    font-size: 1.5rem;
     text-decoration: none;
     color: black;
-    -webkit-text-fill-color: white;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+}
+
+.navbar .pagename {
+    font-family: LazyMonday;
+    font-size: 2rem;
 }
