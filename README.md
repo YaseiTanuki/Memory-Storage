@@ -2,6 +2,7 @@
 Website to store your precious memory.
 
 [status] : Incompleted
+[Working Time]: 18 h
 
 Some time around 2021, I once want to have my onw website as my portfolio.
 Sadly, lacking of time and knowledge, the project has been dropped.
