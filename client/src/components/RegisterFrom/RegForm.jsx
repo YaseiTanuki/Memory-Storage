@@ -7,7 +7,7 @@ export default function RegForm() {
     const [Passwd, setPass] = useState("");
     const Register = async(event) => {
         event.preventDefault();
-        fetch('http://localhost:1707/userinfo', {
+        fetch('http://localhost:1707/api/register', {
             method: "POST",
             headers: {
                 "Content-type": "application/json"
