@@ -1,7 +1,6 @@
-import { RegLogButton } from '../../components/Lobby_relates/ButtonList'
-import { SiteName } from '../../components/Lobby_relates/SiteName'
-
-export default function Home() {
+import { RegLogButton } from '../../components/RegLogButton/RegLogButton'
+import { SiteName } from '../../components/SiteName/SiteName'
+export default function Lobby() {
     return (
     <div class = "container">
         <SiteName/>

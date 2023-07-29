@@ -1,0 +1,14 @@
+@font-face {
+    font-family: HelloSunday;
+    src: url(../../assets/font/HelloSunday.otf);
+  }
+  
+
+.sitename h1 {
+    font-family: HelloSunday;
+    font-size: 7rem;
+    color: black;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
