@@ -3,11 +3,11 @@ import React, { useContext, useState } from 'react'
 import {ToastContainer, toast} from'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useNavigate } from 'react-router-dom'
-import { LoginContext } from '../../App'
+import AuthContext from '../../hook/useContext/authContext'
 
 export default function LoginForm() {
 
-    const {state, dispatchMethod} = useContext(LoginContext)
+    const {setAuth} = useContext(AuthContext)
 
     const [user, setUser] = useState({
         UserName: "",
@@ -29,13 +29,19 @@ export default function LoginForm() {
             })
         });
 
-        if(res.status == 401){
-            toast("Invalid User name or Password!")
+        if(res.status == 200){
+            await res.json().then((data) => {
+                console.log(data.message)
+                const token = data.token
+                window.localStorage.setItem("token", token)
+                setAuth({UserName, token});
+            })
+            
+            toast("Login successfully")
+            Navigate("/home");
         }
         else {
-            dispatchMethod({type: "LOG", payload:true})
-            toast("Login successfully")
-            Navigate("/");
+            toast("Invalid User name or Password!")
         }
 
     }
@@ -49,7 +55,6 @@ export default function LoginForm() {
                 <input type="text" name="Passwd" onChange={(event)=>{setUser({...user, Password: event.target.value})}}/><br />
                 <input className="submitButton" type="submit" value="Submit" />
             </form>
-            <ToastContainer/>
         </div>
     )
 }

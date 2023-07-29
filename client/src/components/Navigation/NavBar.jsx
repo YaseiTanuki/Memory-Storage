@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom"
 import './NBStyle.css'
-import { LoginContext } from "../../App"
+import AuthContext from "../../hook/useContext/authContext"
 import { useContext } from "react"
+import LogoutButton from '../LogoutButton/LogoutButton'
 
 export default function Navbar() {
-  const {state, dispatchMethod} = useContext(LoginContext);
+  const {auth} = useContext(AuthContext);
   const MenuSelector = () => {
-    if(state) {
+    if(auth.UserName) {
       return (
         <ul>
           <li><Link to="/album"><h2>Album</h2></Link></li>
           <li><Link to="/product"><h2>Product</h2></Link></li>
+          <li><LogoutButton/></li>
         </ul>
       )
     } else {
