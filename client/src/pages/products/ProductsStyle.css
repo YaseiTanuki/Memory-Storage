@@ -1,7 +1,7 @@
 .products {
     display: flex;
     margin: auto;
-    overflow: hidden;
+    overflow:scroll;
 }
 
 .products ul {
