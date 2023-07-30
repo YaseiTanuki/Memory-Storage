@@ -9,4 +9,7 @@ router.post("/logout", homeController.LogOut)
 router.get("/album/:id", homeController.LoadPage)
 router.post("/album", homeController.UploadPage)
 
+router.post("/product", homeController.UploadProduct)
+router.get("/product/:id", homeController.LoadProduct)
+
 module.exports = router;
