@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import './NBStyle.css'
-import AuthContext from "../../hook/useContext/authContext"
+import AuthContext from "../../hooks/useContext/authContext"
 import { useContext } from "react"
 import LogoutButton from '../LogoutButton/LogoutButton'
 
