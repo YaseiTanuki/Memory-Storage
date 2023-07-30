@@ -1,4 +1,5 @@
 const Page = require('../models/pageModel')
+const Product = require('../models/productModel')
 
 module.exports = {
     LogOut: async function(req, res){
@@ -42,12 +43,13 @@ module.exports = {
     LoadProduct: async function(req, res){
         const ProductList = await Product.find({OwnerName: req.params.id})
         console.log(req.params.id)
-        if(ProductList.lenght){
-            const data = PageList.map((page) => page.toObject());
+        console.log(ProductList.length)
+        if(ProductList.lenght !=0 ){ 
+            const data = ProductList.map((product) => product.toObject());
             res.status(200).json({message: "Sent", data})
         }
         else{
-            res.send("No page found");
+            res.status(404).send("No Product found");
         }
     },
 }
