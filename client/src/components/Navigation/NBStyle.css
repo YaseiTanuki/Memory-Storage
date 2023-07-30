@@ -35,3 +35,13 @@
     font-family: LazyMonday;
     font-size: 2rem;
 }
+
+.NavContainer {
+    display: flex;
+    align-items: center;
+    gap: 10rem;
+}
+
+.NavContainer .userIcon {
+    width: 80px;
+}
