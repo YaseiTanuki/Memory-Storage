@@ -1,6 +1,12 @@
 const User = require('../models/userModel.js')
+const TokenMethod = require('../auth/Token.js')
 
 module.exports = {
+
+    CheckURI: function (req, res){
+        res.send("Yes, I'm alive")  
+    },
+
     GetStartInfo: function (req, res){
     res.send("Start is up!")
     },
@@ -26,12 +32,16 @@ module.exports = {
     PostLogInfo: async function(req, res){
         const LoggedUser = await User.findOne({UserName: req.body.UserName, Password: req.body.Password})
         if(LoggedUser==null){
-            console.log("Hic")
+            console.log("Hic, you entered incorrect infomation")
             return res.status(401).json({error: "Invalid Infomation"})
         }
         else{
+            const token = TokenMethod.GenerateToken({data: req.body.UserName})
             console.log("Success")
-            return res.status(200).json({message: "Logged"})
+            res.status(200).json({message: "Logged", token: token})
+            const session = req.session
+            session.userid = req.body.UserName;
+            console.log(session.userid);
         }
-    }
+    },
 }
