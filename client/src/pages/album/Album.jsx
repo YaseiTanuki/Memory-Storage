@@ -3,7 +3,6 @@ import AlbumPage from "../../components/Book/AlbumPage.jsx";
 import React, { useState, useEffect, useContext } from "react";
 import './AlbumStyle.css'
 import { ToastContainer, toast } from 'react-toastify'
-import AddPage from "../../components/Book/AddPage.jsx";
 import AddAlbumPageForm from "../../components/Book/AddAlbumPageForm/addAlbumPageForm.jsx";
 import Popup from 'reactjs-popup'
 import AlbumContext from "../../hooks/useContext/albumContext.jsx";
