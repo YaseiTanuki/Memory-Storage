@@ -1,5 +1,5 @@
 import React from "react";
-import './BookStyle.css'
+import './AlbumPageStyle.css'
 
 const AlbumPage = React.forwardRef((props, ref) => {
     return (
