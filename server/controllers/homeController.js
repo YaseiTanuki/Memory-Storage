@@ -52,4 +52,15 @@ module.exports = {
             res.status(404).send("No Product found");
         }
     },
+
+    DeleteProduct: async function(req, res){
+        try {
+            Product.deleteOne({OwnerName: req.body.OwnerName, Name: req.body.Name}).then(() => {
+                console.log("Deleted:" + req.body.Name)
+                res.status(200).json({message: "Deleted product"})
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }
