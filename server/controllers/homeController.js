@@ -20,7 +20,7 @@ module.exports = {
     LoadPage: async function(req, res){
         const PageList = await Page.find({OwnerName: req.params.id})
         console.log(req.params.id)
-        if(PageList){
+        if(PageList.length){
             const data = PageList.map((page) => page.toObject());
             res.status(200).json({message: "Sent", data})
         }
@@ -36,6 +36,18 @@ module.exports = {
             res.status(200).json({message: "Saved new product"})
         } catch (error) {
             console.log(error)
+        }
+    },
+
+    LoadProduct: async function(req, res){
+        const ProductList = await Product.find({OwnerName: req.params.id})
+        console.log(req.params.id)
+        if(ProductList.lenght){
+            const data = PageList.map((page) => page.toObject());
+            res.status(200).json({message: "Sent", data})
+        }
+        else{
+            res.send("No page found");
         }
     },
 }
