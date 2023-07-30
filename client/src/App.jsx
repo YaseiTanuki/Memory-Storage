@@ -18,6 +18,7 @@ import Album from './pages/album/Album'
 
 //Context
 import { AlbumProvider } from './hooks/useContext/albumContext.jsx'
+import { ProductProvider } from './hooks/useContext/productContext'
 /*END IMPORT*/
 
 function App() {
@@ -27,14 +28,22 @@ function App() {
           <div>
             <Routes>
               <Route path="/" element={<Lobby/>}/>
+
               <Route path="/register" element={<RegForm/>}/>
+
               <Route path="/login" element={<LoginForm/>}/>
+
               <Route path='/home' element={<Home/>}/>
+
               <Route path="/album" element={
                 <AlbumProvider>
                   <Album/>
                 </AlbumProvider>}/>
-              <Route path="/product" element={<Product />}/>
+                
+              <Route path="/product" element={
+                <ProductProvider>
+                  <Product />
+                </ProductProvider>}/>
             </Routes>
           </div>
     </>
