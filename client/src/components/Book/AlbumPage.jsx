@@ -1,12 +1,11 @@
-import HTMLFlipBook from "react-pageflip";
 import React from "react";
 import './BookStyle.css'
 
 const AlbumPage = React.forwardRef((props, ref) => {
     return (
       <div className="alpage" ref={ref}>
-        <h2 className="name">{props.name}</h2>
-        <img src={props.imgsource}/>
+        <h2 className="title">{props.title}</h2>
+        <img src={props.imgSource}/>
         <p className="description">{props.children}</p>
       </div>
     );
