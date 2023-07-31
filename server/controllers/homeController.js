@@ -30,6 +30,17 @@ module.exports = {
         }
     },
 
+    DeleteAlbum: async function(req, res) {
+        try {
+            Page.deleteOne({OwnerName: req.body.OwnerName, Title: req.body.Title}).then(() => {
+                console.log("Deleted:" + req.body.Title)
+                res.status(200).json({message: "Deleted page"})
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
     UploadProduct: async function(req, res){
         try {
             const newProduct = await Product.create(req.body)
