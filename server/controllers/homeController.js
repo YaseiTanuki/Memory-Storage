@@ -1,13 +1,8 @@
 const Page = require('../models/pageModel')
 const Product = require('../models/productModel')
+const User = require('../models/userModel')
 
 module.exports = {
-    LogOut: async function(req, res){
-        await req.session.destroy();
-        res.status(200).json({message: "You are logged out"})
-        console.log("Logout. Session destroyed");
-    },
-
     UploadPage: async function(req, res){
         try {
             const newPage = await Page.create(req.body)
@@ -19,20 +14,22 @@ module.exports = {
     },
 
     LoadPage: async function(req, res){
-        const PageList = await Page.find({OwnerName: req.params.id})
-        console.log(req.params.id)
-        if(PageList.length){
-            const data = PageList.map((page) => page.toObject());
-            res.status(200).json({message: "Sent", data})
+        const PageList = await Page.find({UserName: req.body.UserName})
+        console.log(req.body.UserName)
+        var list = [{}];
+        const len = PageList.length
+        if(PageList.length != 0){
+            list = PageList.map((page) => page.toObject());
+            res.status(200).json({message: "Sent Page", list, len})
         }
         else{
-            res.send("No page found");
+            res.status(200).json({message: "No page found", list});
         }
     },
 
-    DeleteAlbum: async function(req, res) {
+    DeletePage: async function(req, res) {
         try {
-            Page.deleteOne({OwnerName: req.body.OwnerName, Title: req.body.Title}).then(() => {
+            Page.deleteOne({UserName: req.body.UserName, Title: req.body.Title}).then(() => {
                 console.log("Deleted:" + req.body.Title)
                 res.status(200).json({message: "Deleted page"})
             })
@@ -52,26 +49,44 @@ module.exports = {
     },
 
     LoadProduct: async function(req, res){
-        const ProductList = await Product.find({OwnerName: req.params.id})
-        console.log(req.params.id)
+        console.log(req.body)
+        const ProductList = await Product.find({UserName: req.body.UserName})
+        console.log(req.body.UserName)
         console.log(ProductList.length)
-        if(ProductList.lenght !=0 ){ 
-            const data = ProductList.map((product) => product.toObject());
-            res.status(200).json({message: "Sent", data})
+        var list = [{}];
+        if(ProductList.length !=0 ){ 
+            list = ProductList.map((product) => product.toObject());
+            res.status(200).json({message: "Sent", list})
         }
         else{
-            res.status(404).send("No Product found");
+            res.status(200).json({message: "No Product found", list});
         }
     },
 
     DeleteProduct: async function(req, res){
+        console.log(req.body.UserName)
+        console.log(req.body.Name)
         try {
-            Product.deleteOne({OwnerName: req.body.OwnerName, Name: req.body.Name}).then(() => {
+            await Product.deleteOne({UserName: req.body.UserName, Name: req.body.Name}).then(() => {
                 console.log("Deleted:" + req.body.Name)
                 res.status(200).json({message: "Deleted product"})
             })
         } catch (error) {
             console.log(error)
+        }
+    },
+
+    ChangePasswd: async function(req, res) {
+        try {
+            const doc = await User.findOneAndUpdate({UserName: req.body.UserName, Password: req.body.OldPasswd}, {Password: req.body.NewPasswd}, {new: true})
+            if(!doc){
+                return res.status(403).json({message: "Incorrect Password"})
+            }
+            console.log("Update Password for " + req.body.UserName)
+            return res.status(200).json({message: "Updated!"})
+        } catch (error) {
+            console.log(error)
+            return res.status(202).json({message: "Fail to update"})
         }
     }
 }

@@ -44,4 +44,9 @@ module.exports = {
             console.log(session.userid);
         }
     },
+
+    LogOut: async function(req, res){
+        res.status(200).json({message: "You are logged out"})
+        console.log("Logout");
+    },
 }
