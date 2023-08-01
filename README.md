@@ -1,25 +1,34 @@
 # Memory-Storage
-Website to store your precious memory.
+Website to store your precious memory in more visible way.
 
-Some time around 2021, I once want to have my onw website as my portfolio.
-Sadly, lacking of time and knowledge, the project has been dropped.
-In 7/2023, I restart it from scratch as this website and make it for everyone. Not only for them who want a portfolio but also for someone want a place to store things they do in the past.
+Website to store your precious memory more visibly.
 
-[status] : Incompleted
-[Working Time]: 40 h
+I used to store many images with my family and friends on the computer and keep one backup version on Google Drive.\
+This way has a lot of disadvantages:\
++ It takes a lot of time to find an image.\
++ Restoring all the files also takes a long time.\
++ Viewing images by clicking on each file is somehow boring.\
+
+Besides, not only images, I also want to write down a detail about something that I created (why I make it, for who... etc), while I still remember, for example: small programs, handicraft toys...
+
+So, I created this site, for easier storing, giving details and viewing your memories.
+
+[status] : Useable
+[Working Time]: 52 h
 
 [Feattures]
-    Register: [*]
-    Login/logout: [*]
-    Profile: [x]
-    Upload Image: [x]
-    View Image: [*]
-    Upload product: [x]
-    View product: [*]
+    Register: [0]
+    Login/logout: [0]
+    Profile: [*]
+    Upload Image: [0]
+    View Image: [0]
+    Upload product: [0]
+    View product: [0]
 
 [Auth]
-    Protect routes: [x]
-    Protect Password: [x]
+    Protect routes: [0]
+    Protect Password: [*]
 
 [x]: Do not have.
 [*]: Incompleted.
+[o]: Done
