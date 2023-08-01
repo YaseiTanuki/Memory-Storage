@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const pageSchema = new mongoose.Schema({
-    OwnerName: {
+    UserName: {
         type: String,
         require: true,
     },

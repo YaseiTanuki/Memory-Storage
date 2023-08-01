@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({
-    OwnerName: {
+    UserName: {
         type: String,
         require: true,
     },
