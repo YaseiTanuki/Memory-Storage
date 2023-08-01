@@ -4,31 +4,24 @@ import Popup from 'reactjs-popup'
 import AuthContext from '../../hooks/useContext/authContext'
 import { useContext } from 'react'
 import ProductContext from '../../hooks/useContext/productContext'
+import useAuthAxios from '../../hooks/useAxios/useAuthAxios'
 
 export default function Product(props) {
 
     const {auth} = useContext(AuthContext)
     const {allProducts, setAllProducts} = useContext(ProductContext)
     const Delete = async() => {
-        const OwnerName = auth.UserName
         const Name = props.name
-        const res = await fetch("http://localhost:1707/api/home/product", {
-            method: 'DELETE',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify ({
-                OwnerName, Name
-            })
+        console.log(Name)
+        const authAxios = useAuthAxios();
+        await authAxios.delete("/api/home/product", {
+            data: {Name}
+        }).then((res) => {
+            if(res.status == 200) {
+                console.log(res.data.message)
+                setAllProducts(allProducts - 1)
+            }
         })
-
-        if(res.status == 200) {
-            await res.json().then((data) => {
-                console.log(data.message)
-                
-            })
-            setAllProducts((allProducts) => ({count: allProducts.count - 1}))
-        }
     }
     return(<div className="product">
             <h2 className="name">{props.name}</h2>

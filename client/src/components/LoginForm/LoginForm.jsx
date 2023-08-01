@@ -4,10 +4,11 @@ import {ToastContainer, toast} from'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useNavigate } from 'react-router-dom'
 import AuthContext from '../../hooks/useContext/authContext'
+import usePublicAxios from '../../hooks/useAxios/usePublicAxios'
 
 export default function LoginForm() {
 
-    const {setAuth} = useContext(AuthContext)
+    const {auth, setAuth} = useContext(AuthContext)
 
     const [user, setUser] = useState({
         UserName: "",
@@ -19,32 +20,24 @@ export default function LoginForm() {
     const Login = async(event) => {
         event.preventDefault();
         const {UserName, Password} = user;
-        const res = await fetch('http://localhost:1707/api/login', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify ({
+        const publicAxios = usePublicAxios()
+        await publicAxios.post('/api/login', {
                 UserName, Password
+        }).then(res => {
+            if(res.status == 200){
+                    console.log(res.data.message)
+                    const Token = res.data.token
+                    window.localStorage.setItem("user", UserName)
+                    window.localStorage.setItem("token", Token)
+                    setAuth({UserName: UserName, Token: Token});
+                    toast("Login successfully")
+                    Navigate("/home");
+            }
+            else {
+                toast("Invalid User name or Password!")
+            }
             })
-        });
-
-        if(res.status == 200){
-            await res.json().then((data) => {
-                console.log(data.message)
-                const token = data.token
-                window.localStorage.setItem("token", token)
-                setAuth({UserName, token});
-            })
-            
-            toast("Login successfully")
-            Navigate("/home");
         }
-        else {
-            toast("Invalid User name or Password!")
-        }
-
-    }
 
     return (
         <div>

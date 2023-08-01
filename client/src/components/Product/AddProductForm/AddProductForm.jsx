@@ -1,6 +1,8 @@
 import { useContext, useState } from 'react';
 import AuthContext from '../../../hooks/useContext/authContext';
 import ProductContext from '../../../hooks/useContext/productContext';
+import useAuthAxios from '../../../hooks/useAxios/useAuthAxios';
+
 export default function AddProductForm() {
 
     const {auth} = useContext(AuthContext)
@@ -13,23 +15,16 @@ export default function AddProductForm() {
     const Upload = async(event) => {
         event.preventDefault();
         const {Name, Description} = product;
-        const OwnerName = auth.UserName
-        const res = await fetch("http://localhost:1707/api/home/product", {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify ({
-                OwnerName, Name, Description
-            })
-        })
+        const authAxios = useAuthAxios();
 
-        if(res.status == 200){
-            await res.json().then((data) => {
-                console.log(data.message);
-            })
-            setAllProducts((allProducts) => ({count: allProducts.count + 1}))
-        }
+        await authAxios.post("/api/home/product", {
+            Name, Description
+        }).then((res) => {
+            if(res.status == 200){
+                    console.log(res.data.message);
+                setAllProducts(allProducts + 1)
+            }
+        })
     }
 
     return (

@@ -3,6 +3,7 @@ import './addAlbumPageFormStyle.css'
 import '../../../hooks/useContext/albumContext'
 import AlbumContext from '../../../hooks/useContext/albumContext';
 import AuthContext from '../../../hooks/useContext/authContext';
+import useAuthAxios from '../../../hooks/useAxios/useAuthAxios';
 
 export default function AddAlbumPageForm() {
 
@@ -18,23 +19,15 @@ export default function AddAlbumPageForm() {
     const Upload = async(event) => {
         event.preventDefault();
         const {Title, Image, Description} = page;
-        const OwnerName = auth.UserName
-        const res = await fetch("http://localhost:1707/api/home/album", {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify ({
-                OwnerName, Title, Image, Description
-            })
-        })
-
-        if(res.status == 200){
-            await res.json().then((data) => {
-                console.log(data.message);
-            })
-            setAlbum((album) => ({pages: album.pages + 1}))
-        }
+        const authAxios = useAuthAxios();
+        await authAxios.post("http://localhost:1707/api/home/album", {
+            Title, Image, Description
+        }).then((res => {
+            if(res.status == 200){
+                console.log(res.data.message);
+                setAlbum(album + 1)
+            }
+        }))
     }
 
     const ConvertToBase64 = (e) => {

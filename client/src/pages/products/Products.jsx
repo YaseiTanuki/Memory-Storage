@@ -4,6 +4,7 @@ import AddProductForm from "../../components/Product/AddProductForm/AddProductFo
 import AuthContext from "../../hooks/useContext/authContext"
 import ProductContext from "../../hooks/useContext/productContext"
 import { useContext, useState, useEffect } from "react"
+import useAuthAxios from "../../hooks/useAxios/useAuthAxios";
 
 export default function Products() {
     const {auth} = useContext(AuthContext)
@@ -13,20 +14,14 @@ export default function Products() {
 
     useEffect(() => {
         async function TakeProducts() {
-          const OwnerName = auth.UserName;
-          const res = await fetch(("http://localhost:1707/api/home/product/" + OwnerName), {
-            method: 'GET',
-            headers: {
-              'Content-type': 'application/json'
-          }
+          const authAxios = useAuthAxios()
+          await authAxios.get("/api/home/product/").then((res) => {
+            if(res.status == 200){
+                console.log(res.data.message)
+                setProducts((products) => (res.data.list))
+                console.log(products)
+            }
           })
-      
-          if(res.status == 200){
-            await res.json().then((data) => {
-              setProducts((products) => (data.data))
-              console.log(products)
-            })
-          }
         }
     
         TakeProducts();
@@ -44,7 +39,7 @@ export default function Products() {
                 )}
                 else{
                     return (
-                        ""
+                        <></>
                     )
                 }
               })
