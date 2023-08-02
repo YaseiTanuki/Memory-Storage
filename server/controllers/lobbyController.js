@@ -4,7 +4,7 @@ const TokenMethod = require('../auth/Token.js')
 module.exports = {
 
     CheckURI: function (req, res){
-        res.send("Yes, I'm alive")  
+        res.json({message: "Yes, I'm alive"})  
     },
 
     GetStartInfo: function (req, res){
