@@ -1,13 +1,13 @@
 /*BEGIN IMPORT*/
 //node_modules
 import { Route, Routes } from 'react-router-dom'
-
+import { useContext, useEffect } from 'react'
 //css
 import './App.css'
 
 //components
 import NavBar from './components/Navigation/NavBar.jsx'
-import RegForm from './components/RegisterFrom/RegForm'
+import RegForm from './components/RegisterForm/RegForm'
 import LoginForm from './components/LoginForm/LoginForm'
 import RoutesAuth from './components/RoutesAuth/RoutesAuth'
 import ChangePasswdForm from './components/ChangePasswdForm/ChangePasswdForm'
@@ -17,15 +17,15 @@ import Home from './pages/home/Home'
 import Product from './pages/products/Products.jsx'
 import Album from './pages/album/Album'
 
-//Context
+//Hooks
 import AuthContext from './hooks/useContext/authContext'
 import { AlbumProvider } from './hooks/useContext/albumContext.jsx'
 import { ProductProvider } from './hooks/useContext/productContext'
-import { useContext } from 'react'
 /*END IMPORT*/
 
 function App() {
   const {auth} = useContext(AuthContext)
+
   return (
     <>
       <NavBar />
