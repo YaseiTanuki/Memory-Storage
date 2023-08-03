@@ -1,4 +1,15 @@
 .AddProductForm {
     width: 25vw;
     height: 50vh;
+    border-radius: 15px;
+}
+
+.AddProductForm input {
+    border-radius: 15px;
+    margin-bottom: 50px;
+}
+
+.AddProductForm textarea {
+    border-radius: 15px;
+    width: 90%;
 }
