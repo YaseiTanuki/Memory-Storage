@@ -32,7 +32,7 @@ If you want this site to run locally<br/>
 7. Open your browser and go to: localhost:5173.<br/>
 8. Enjoy
 
-## Feattures
+## Features
 Currently support features as below, there are still many features that I'm working on. So, this list will be updated in the future.<br/>
     Register: [o]<br/>
     Login/logout: [o]<br/>
