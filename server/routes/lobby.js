@@ -4,15 +4,11 @@ const routerHome = require('./home')
 const lobbyController = require('../controllers/lobbyController.js')
 const Auth = require('../auth/Auth')
 
-router.get("/", lobbyController.GetStartInfo)
+router.get("/", lobbyController.CheckURI)
 
-router.get("/register", lobbyController.GetRegInfo)
+router.post("/register", lobbyController.Register)
 
-router.post("/register", lobbyController.PostRegInfo)
-
-router.get("/login", lobbyController.GetLogInfo)
-
-router.post("/login", lobbyController.PostLogInfo)
+router.post("/login", lobbyController.Login)
 
 router.post("/logout", lobbyController.LogOut)
 

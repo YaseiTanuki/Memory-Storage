@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const homeController = require('../controllers/homeController')
 const lobbyController = require('../controllers/lobbyController')
-const Auth = require('../auth/Auth')
 
 router.get("/", lobbyController.CheckURI)
 
