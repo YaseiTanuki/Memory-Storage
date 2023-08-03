@@ -1,33 +1,44 @@
 import React, {useState}from "react"
 import './RegFormStyle.css'
 import usePublicAxios from "../../hooks/useAxios/usePublicAxios"
+import CheckReEnterPasswd from "../../utils/CheckReEnterPasswd"
+import {ToastContainer, toast} from'react-toastify'
 
 export default function RegForm() {
 
     const [user, setUser] = useState({
         UserName: "",
-        Password: ""
+        Password: "",
+        RePassword: ""
     })
 
     const Register = async(event) => {
         event.preventDefault();
-        const {UserName, Password} = user;
+        const {UserName, Password, RePassword} = user;
+        if(!CheckReEnterPasswd(Password, RePassword)){
+            return toast.error("Re-Enter Password is not correct")
+        }
         const publicAxios = usePublicAxios();
         await publicAxios.post('http://localhost:1707/api/register', {
                 UserName, Password
-        });
+        }).then((res) => {
+            console.log(res.data.message)
+        })
         console.log(UserName, Password)
     }
 
     return (
+        <div>
         <form className="RegForm" onSubmit={Register} action="">
             <label htmlFor="UserName">User name</label><br/>
             <input type="text" name="UserName" onChange={(event) => {setUser({...user, UserName: event.target.value})}}/><br />
             <label htmlFor="Passwd">Password</label><br />
             <input type="text" name="Passwd" onChange={(event) => {setUser({...user, Password: event.target.value})}}/><br />
             <label htmlFor="Repasswd">Re-Enter Password</label><br />
-            <input type="text" name="Repasswd"/><br />
+            <input type="text" name="Repasswd" onChange={(event) => {setUser({...user, RePassword: event.target.value})}}/><br />
             <input className="submitButton" type="submit" value="Submit" />
         </form>
+        <ToastContainer/>
+        </div>
     )
 }
