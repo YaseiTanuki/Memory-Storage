@@ -1,34 +1,73 @@
 # Memory-Storage
-Website to store your precious memory in more visible way.
 
-Website to store your precious memory more visibly.
+## Name
+Memory Storage<br/>
 
-I used to store many images with my family and friends on the computer and keep one backup version on Google Drive.\
-This way has a lot of disadvantages:\
-+ It takes a lot of time to find an image.\
-+ Restoring all the files also takes a long time.\
-+ Viewing images by clicking on each file is somehow boring.\
+## Description
+Website to store your precious memory in more visible way.<br/>
+----------------------------------------------------------
 
-Besides, not only images, I also want to write down a detail about something that I created (why I make it, for who... etc), while I still remember, for example: small programs, handicraft toys...
+I used to store many images with my family and friends on the computer and keep one backup version on Google Drive.<br/>
+This way has a lot of disadvantages:<br/>
++ It takes a lot of time to find an image.<br/>
++ Restoring all the files also takes a long time.<br/>
++ Viewing images by clicking on each file is somehow boring.<br/>
 
-So, I created this site, for easier storing, giving details and viewing your memories.
+Besides, not only images, I also want to write down a detail about something that I created (why I make it, for who... etc), while I still remember, for example: small programs, handicraft toys...<br/>
 
-[status] : Useable
-[Working Time]: 52 h
+So, I created this site, for easier storing, giving details and viewing your memories.<br/>
 
-[Feattures]
-    Register: [0]
-    Login/logout: [0]
-    Profile: [*]
-    Upload Image: [0]
-    View Image: [0]
-    Upload product: [0]
-    View product: [0]
+## Visual
 
-[Auth]
-    Protect routes: [0]
-    Protect Password: [*]
+## Installation
+If you want this site to run locally<br/>
+1. Install the newest version of Nodejs on your machine.<br/>
+2. Create MongoDB account. And get the connection string.<br/>
+3. Create a file .env inside server directory. Paste your connection string like this:<br/>
+    URI = "Your connection string here".<br/>
+4. Open 2 terminal windows, each in client and server directory.<br/>
+5. Run "npm install" command in both terminal.<br/>
+6. Run "npm run dev" command in both terminal.<br/>
+7. Open your browser and go to: localhost:5173.<br/>
+8. Enjoy
 
+## Feattures
+Currently support features as below, there are still many features that I'm working on. So, this list will be updated in the future.<br/>
+    Register: [o]<br/>
+    Login/logout: [o]<br/>
+    Profile: [o]<br/>
+    Upload Image: [o]<br/>
+    View Image: [o]<br/>
+    Upload product: [o]<br/>
+    View product: [o]<br/>
+
+Auth-relates feature:
+    Protect routes: [0]<br/>
+    Protect Password: [*]<br/>
+
+--------------------------
 [x]: Do not have.
 [*]: Incompleted.
 [o]: Done
+--------------------------
+
+## Project status
+
+Version: 1.0.0<br/>
+Status : Useable<br/>
+Working Time: 70 h<br/>
+
+## Contributing
++ YaseiTanuki (me)<br/>
+
+
+
+## Something you may want to know
+1. 
+Q: What did you use to make this site?<br/>
+A: Client-side code (front-end) is made with React, folder structure is provide by Vite.<br/>
+   And using ExpressJS web framework in server-side code (back-end).<br/>
+
+2.
+Q: Where did you deploy the site? Is it free?<br/>
+A: Back-end is hosted using Render. Front-end using Netlify. Both are free to use.<br/>
