@@ -1,11 +1,14 @@
 import { SiteName } from "../../components/SiteName/SiteName"
-import { ToastContainer, toast } from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
+import './HomeStyle.css'
 
 export default function Home() {
     return (
-        <div>
+        <div className="HomePage">
             <SiteName/>
-            <h1>Hello, you are in!</h1>
+            <div className="Greeting-container">
+                <h1 className="Greeting">Hello, let's start exploring!</h1>
+            </div>
             <ToastContainer/>
         </div>
     )
