@@ -1,7 +1,7 @@
 /*BEGIN IMPORT*/
 //node_modules
 import { Route, Routes } from 'react-router-dom'
-import { useContext, useEffect } from 'react'
+
 //css
 import './App.css'
 
@@ -14,7 +14,7 @@ import ChangePasswdForm from './components/ChangePasswdForm/ChangePasswdForm'
 //pages
 import Lobby from './pages/lobby/Lobby'
 import Home from './pages/home/Home'
-import Product from './pages/products/Products.jsx'
+import Products from './pages/products/Products.jsx'
 import Album from './pages/album/Album'
 
 //Hooks
@@ -24,7 +24,6 @@ import { ProductProvider } from './hooks/useContext/productContext'
 /*END IMPORT*/
 
 function App() {
-  const {auth} = useContext(AuthContext)
 
   return (
     <>
@@ -45,7 +44,7 @@ function App() {
                   </AlbumProvider>}/>
                 <Route path="/product" element={
                   <ProductProvider>
-                    <Product />
+                    <Products />
                   </ProductProvider>}/>
                 </Route>
                 <Route path="/changepassword" element={<ChangePasswdForm/>}/>
