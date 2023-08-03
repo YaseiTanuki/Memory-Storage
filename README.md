@@ -5,7 +5,6 @@ Memory Storage<br/>
 
 ## Description
 Website to store your precious memory in more visible way.<br/>
-----------------------------------------------------------
 
 I used to store many images with my family and friends on the computer and keep one backup version on Google Drive.<br/>
 This way has a lot of disadvantages:<br/>
@@ -18,6 +17,8 @@ Besides, not only images, I also want to write down a detail about something tha
 So, I created this site, for easier storing, giving details and viewing your memories.<br/>
 
 ## Visual
+This site is available online. You may want to take a look: memory-storage.netlify.app<br/>
+P/s: I'm using free hosting service (Render), which will automatically spun down after 15 minutes of inactivity. Render spins it up again when a new requset come. Which mean, the first time you send request (Register, login... etc), it will take sometime.<br/>
 
 ## Installation
 If you want this site to run locally<br/>
@@ -46,9 +47,9 @@ Auth-relates feature:
     Protect Password: [*]<br/>
 
 --------------------------
-[x]: Do not have.
-[*]: Incompleted.
-[o]: Done
+[x]: Do not have.<br/>
+[*]: Incompleted.<br/>
+[o]: Done.<br/>
 --------------------------
 
 ## Project status
@@ -63,11 +64,11 @@ Working Time: 70 h<br/>
 
 
 ## Something you may want to know
-1. 
+----------
 Q: What did you use to make this site?<br/>
 A: Client-side code (front-end) is made with React, folder structure is provide by Vite.<br/>
    And using ExpressJS web framework in server-side code (back-end).<br/>
 
-2.
+----------
 Q: Where did you deploy the site? Is it free?<br/>
 A: Back-end is hosted using Render. Front-end using Netlify. Both are free to use.<br/>
