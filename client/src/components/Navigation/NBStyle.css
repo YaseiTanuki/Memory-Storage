@@ -14,6 +14,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: rgba(0,0,0,0.4);
+    color: #fff;
 }
 
 .navbar ul {
@@ -28,7 +30,11 @@
 
 .navbar a {
     text-decoration: none;
-    color: black;
+    color: white;
+}
+
+.navbar a:hover {
+    color: #7e95d4;
 }
 
 .navbar .pagename {
