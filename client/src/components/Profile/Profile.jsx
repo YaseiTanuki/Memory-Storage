@@ -2,6 +2,7 @@ import { useContext } from "react";
 import AuthContext from "../../hooks/useContext/authContext";
 import LogoutButton from "../LogoutButton/LogoutButton"
 import { useNavigate } from "react-router-dom";
+import './ProfileStyle.css'
 
 export default function Profile() {
     const {auth} = useContext(AuthContext)
@@ -11,9 +12,9 @@ export default function Profile() {
     }
 
     return(
-        <div>
-            <h2>Hello, {auth.UserName}</h2>
-            <button onClick={ToChangePasswdForm}>Change Password</button>
+        <div className="profile">
+            <h2 className="greeting">Hello, {auth.UserName}</h2>
+            <button className="ChangePasswdButton" onClick={ToChangePasswdForm}>Change Password</button>
             <LogoutButton/>
         </div>
     ) 
