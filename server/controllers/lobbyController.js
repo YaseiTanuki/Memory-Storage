@@ -4,41 +4,29 @@ const TokenMethod = require('../auth/Token.js')
 module.exports = {
 
     CheckURI: function (req, res){
-        res.json({message: "Yes, I'm alive"})  
+        res.json({message: "Yes, I'm alive", status: "OK"})  
     },
 
-    GetStartInfo: function (req, res){
-    res.send("Start is up!")
-    },
-
-    GetRegInfo: function (req,res){
-        res.send("register is up!")
-    },
-
-    PostRegInfo: async function(req, res){
+    Register: async function(req, res){
         try {
             const newUser = await User.create(req.body)
             console.log(req.body);
-            res.send(req.body)
+            res.json({message: "New user created", status: "OK"})
         } catch (error) {
             console.log(error)
         }
     },
 
-    GetLogInfo: function (req,res){
-        res.send("login is up!")
-    },
-
-    PostLogInfo: async function(req, res){
+    Login: async function(req, res){
         const LoggedUser = await User.findOne({UserName: req.body.UserName, Password: req.body.Password})
         if(LoggedUser==null){
             console.log("Hic, you entered incorrect infomation")
-            return res.status(401).json({error: "Invalid Infomation"})
+            return res.json({message: "Invalid Infomation", status: "NOT OK"})
         }
         else{
             const token = TokenMethod.GenerateToken({data: req.body.UserName})
             console.log("Success")
-            res.status(200).json({message: "Logged", token: token})
+            res.status(200).json({message: "Login successfully", status: "OK", token: token})
             const session = req.session
             session.userid = req.body.UserName;
             console.log(session.userid);
@@ -46,7 +34,7 @@ module.exports = {
     },
 
     LogOut: async function(req, res){
-        res.status(200).json({message: "You are logged out"})
+        res.json({message: "Logout successfully", status: "OK"})
         console.log("Logout");
     },
 }

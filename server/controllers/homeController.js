@@ -7,7 +7,7 @@ module.exports = {
         try {
             const newPage = await Page.create(req.body)
             console.log("New page created");
-            res.status(200).json({message: "Saved new image"})
+            res.json({message: "Saved new image", status: "OK"})
         } catch (error) {
             console.log(error)
         }
@@ -20,10 +20,10 @@ module.exports = {
         const len = PageList.length
         if(PageList.length != 0){
             list = PageList.map((page) => page.toObject());
-            res.status(200).json({message: "Sent Page", list, len})
+            res.json({message: "Sent Page", status: "OK", list, len})
         }
         else{
-            res.status(200).json({message: "No page found", list});
+            res.json({message: "No page found", status: "NOT OK", list});
         }
     },
 
@@ -31,10 +31,11 @@ module.exports = {
         try {
             Page.deleteOne({UserName: req.body.UserName, Title: req.body.Title}).then(() => {
                 console.log("Deleted:" + req.body.Title)
-                res.status(200).json({message: "Deleted page"})
+                res.json({message: "Deleted page", status: "OK"})
             })
         } catch (error) {
             console.log(error)
+            res.json({message: "Error occured", status: "NOT OK"});
         }
     },
 
@@ -42,9 +43,10 @@ module.exports = {
         try {
             const newProduct = await Product.create(req.body)
             console.log("New product created");
-            res.status(200).json({message: "Saved new product"})
+            res.json({message: "Saved new product", status: "OK"})
         } catch (error) {
             console.log(error)
+            res.json({message: "Error occured", status: "NOT OK"});
         }
     },
 
@@ -56,10 +58,10 @@ module.exports = {
         var list = [{}];
         if(ProductList.length !=0 ){ 
             list = ProductList.map((product) => product.toObject());
-            res.status(200).json({message: "Sent", list})
+            res.json({message: "Sent", status: "OK", list})
         }
         else{
-            res.status(200).json({message: "No Product found", list});
+            res.json({message: "No Product found", status: "NOT OK", list});
         }
     },
 
@@ -69,10 +71,11 @@ module.exports = {
         try {
             await Product.deleteOne({UserName: req.body.UserName, Name: req.body.Name}).then(() => {
                 console.log("Deleted:" + req.body.Name)
-                res.status(200).json({message: "Deleted product"})
+                res.json({message: "Deleted product", status: "OK"})
             })
         } catch (error) {
             console.log(error)
+            res.json({message: "Error occured", status: "NOT OK"});
         }
     },
 
@@ -80,13 +83,13 @@ module.exports = {
         try {
             const doc = await User.findOneAndUpdate({UserName: req.body.UserName, Password: req.body.OldPasswd}, {Password: req.body.NewPasswd}, {new: true})
             if(!doc){
-                return res.status(403).json({message: "Incorrect Password"})
+                return res.json({message: "Incorrect Password", status: "NOT OK"})
             }
             console.log("Update Password for " + req.body.UserName)
-            return res.status(200).json({message: "Updated!"})
+            return res.json({message: "Updated!", status: "OK"})
         } catch (error) {
             console.log(error)
-            return res.status(202).json({message: "Fail to update"})
+            return res.status(202).json({message: "Fail to update", status: "NOT OK"})
         }
     }
 }
