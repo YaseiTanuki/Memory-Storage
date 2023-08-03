@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext} from 'react'
 import AuthContext from "../../hooks/useContext/authContext";
 import usePublicAxios from "../../hooks/useAxios/useAuthAxios";
+import './LogoutButtonStyles.css'
 
 export default function LogoutButton() {
 
@@ -14,7 +15,7 @@ export default function LogoutButton() {
         await publicAxios.post('/api/logout', {
             message: "I want to logout"
         }).then((res) => {
-            if(res.status == 200){
+            if(res.data.status == "OK"){
                 console.log("Logged out")
                 setAuth({});
                 window.localStorage.removeItem("user")
@@ -25,6 +26,6 @@ export default function LogoutButton() {
     }
 
     return(
-        <button onClick={Logout}>Logout</button>
+        <button className="LogoutButton" onClick={Logout}>Logout</button>
     )
 }
