@@ -1,5 +1,6 @@
 .albumPage {
     display: flex;
+    padding-top: 20px;
 }
 
 .AddNewIcon {

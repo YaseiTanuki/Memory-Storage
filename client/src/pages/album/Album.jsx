@@ -7,6 +7,7 @@ import Popup from 'reactjs-popup'
 import AlbumContext from "../../hooks/useContext/albumContext.jsx";
 import useAuthAxios from "../../hooks/useAxios/useAuthAxios.jsx";
 import NPage from "../../components/Book/Npage.jsx";
+import CoverPage from "../../components/Book/CoverPage.jsx";
 
 function Album(props) {
 
@@ -38,7 +39,7 @@ function Album(props) {
             width={700} 
             height={800}
             showCover={false}>
-              <img src="/img/bookCover.jpg" alt="" />
+              <CoverPage/>
               {
                 pages.map((page, index) => {
                   if(album > 0){
