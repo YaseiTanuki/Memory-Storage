@@ -21,10 +21,10 @@ export default function LoginForm() {
         event.preventDefault();
         const {UserName, Password} = user;
         const publicAxios = usePublicAxios()
-        await publicAxios.post('/api/login', {
+        publicAxios.post('/api/login', {
                 UserName, Password
-        }).then(res => {
-            if(res.status == 200){
+        }).then((res) => {
+            if(res.data.status == "OK"){
                     console.log(res.data.message)
                     const Token = res.data.token
                     window.localStorage.setItem("user", UserName)
@@ -33,8 +33,8 @@ export default function LoginForm() {
                     toast("Login successfully")
                     Navigate("/home");
             }
-            else {
-                toast("Invalid User name or Password!")
+            else{
+                toast.error("User name or password not match")
             }
             })
         }
@@ -48,6 +48,7 @@ export default function LoginForm() {
                 <input type="text" name="Passwd" onChange={(event)=>{setUser({...user, Password: event.target.value})}}/><br />
                 <input className="submitButton" type="submit" value="Submit" />
             </form>
+            <ToastContainer/>
         </div>
     )
 }
