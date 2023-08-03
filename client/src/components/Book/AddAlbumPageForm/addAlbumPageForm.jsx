@@ -2,12 +2,9 @@ import { useContext, useState } from 'react';
 import './addAlbumPageFormStyle.css'
 import '../../../hooks/useContext/albumContext'
 import AlbumContext from '../../../hooks/useContext/albumContext';
-import AuthContext from '../../../hooks/useContext/authContext';
 import useAuthAxios from '../../../hooks/useAxios/useAuthAxios';
 
 export default function AddAlbumPageForm() {
-
-    const {auth} = useContext(AuthContext)
     const {album, setAlbum} = useContext(AlbumContext)
 
     const [page, setPage] = useState({
@@ -23,7 +20,7 @@ export default function AddAlbumPageForm() {
         await authAxios.post("http://localhost:1707/api/home/album", {
             Title, Image, Description
         }).then((res => {
-            if(res.status == 200){
+            if(res.data.status == "OK"){
                 console.log(res.data.message);
                 setAlbum(album + 1)
             }

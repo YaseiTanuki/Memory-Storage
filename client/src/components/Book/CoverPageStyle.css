@@ -1,0 +1,15 @@
+.CoverPage {
+    background-color:#e3d0b5;
+    border: 1px solid #c2b5a3;
+    box-shadow: 7px 7px 7px 7px #353535;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.CoverPage h2{
+    text-align: center;
+    margin: auto;
+    font-size: 3rem;
+    padding-top: 40%;
+    color: black;;
+}

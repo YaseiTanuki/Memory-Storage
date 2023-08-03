@@ -1,4 +1,29 @@
 .alpage img {
     max-width: 480px;
     max-height: 480px;
+    box-shadow: 5px 5px 5px 5px #D3D3D3;
+    border-radius: 15px;
+}
+
+.alpage {
+    background-color: #DCDCDC;
+    box-shadow: 7px 7px 7px 7px #353535;
+    border: 1px solid black;
+    border-radius: 15px;
+}
+
+.alpage .title {
+    color: black;
+    font-size: 2rem;
+}
+
+.alpage .description {
+    color: black;
+}
+
+.alpage .more {
+    background:none;
+    color: black;
+    font-size: large;
+    border-radius: 50%;
 }

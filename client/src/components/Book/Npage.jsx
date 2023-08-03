@@ -1,4 +1,6 @@
 import React from "react";
+import './AlbumPageStyle.css'
+
 const NPage = React.forwardRef((props, ref) => {
     return (
         <div className="alpage" ref={ref}>

@@ -15,7 +15,7 @@ const AlbumPage = React.forwardRef((props, ref) => {
         Title
       }
     }).then((res) => {
-      if(res.status == 200){
+      if(res.data.status == "OK"){
         console.log("Deleted")
         setAlbum(album - 1)
       }
@@ -26,7 +26,7 @@ const AlbumPage = React.forwardRef((props, ref) => {
         <h2 className="title">{props.title}</h2>
         <img src={props.imgSource}/>
         <p className="description">{props.children}</p>
-        <Popup trigger={<button>...</button>}>
+        <Popup trigger={<button className="more">...</button>}>
           <button onClick={Delete}>Delete</button>
         </Popup>
       </div>
