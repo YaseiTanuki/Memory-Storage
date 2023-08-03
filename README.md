@@ -17,7 +17,7 @@ Besides, not only images, I also want to write down a detail about something tha
 So, I created this site, for easier storing, giving details and viewing your memories.<br/>
 
 ## Visual
-This site is available online. You may want to take a look: [1]: memory-storage.netlify.app <br/>
+This site is available online. You may want to take a look: [x]: memory-storage.netlify.app <br/>
 P/s: I'm using free hosting service (Render), which will automatically spun down after 15 minutes of inactivity. Render spins it up again when a new requset come. Which mean, the first time you send request (Register, login... etc), it will takes sometime.<br/>
 
 ## Installation
@@ -47,8 +47,8 @@ Auth-relates feature:
     Protect Password: [*]<br/>
 
 --------------------------
-[*]: Incompleted.<br/>
-[o]: Done.<br/>
+*: Incompleted.<br/>
+o: Done.<br/>
 --------------------------
 
 ## Project status
