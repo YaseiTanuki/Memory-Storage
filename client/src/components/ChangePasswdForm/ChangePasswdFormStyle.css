@@ -1,0 +1,14 @@
+.ChangePasswdForm label{
+    color: black;
+}
+
+.ChangePasswdForm input {
+    width: 40vw;
+    height: 3vh;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.ChangePasswdForm .submitButton {
+    margin-top: 5vh;
+}

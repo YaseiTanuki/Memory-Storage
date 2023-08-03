@@ -1,12 +1,11 @@
-import { useContext, useState } from "react"
+import { useState } from "react"
 import CheckReEnterPasswd from "../../utils/CheckReEnterPasswd";
 import { ToastContainer, toast } from "react-toastify";
 import useAuthAxios from "../../hooks/useAxios/useAuthAxios";
-import AuthContext from "../../hooks/useContext/authContext";
+import './ChangePasswdFormStyle.css'
 
 export default function ChangePasswdForm() {
 
-    const {auth} = useContext(AuthContext)
     const [changePasswd, setChangePasswd] = useState({
         OldPasswd: "",
         NewPasswd: "",
@@ -23,7 +22,7 @@ export default function ChangePasswdForm() {
         await authAxios.put("/api/home/changepasswd", {
             OldPasswd, NewPasswd
         }).then(res => {
-            if(res.status == 200){
+            if(res.data.status == "OK"){
                 console.log(res.data.message)
             }
             else {
@@ -34,14 +33,14 @@ export default function ChangePasswdForm() {
 
     return (
         <>
-        <form action="" onSubmit={UpdatePasswd}>
+        <form className="ChangePasswdForm" action="" onSubmit={UpdatePasswd}>
             <label htmlFor="OldPasswd">Current password:</label><br />
             <input type="text" onChange={(event) => {setChangePasswd({...changePasswd, OldPasswd: event.target.value})}}/><br />
             <label htmlFor="NewPasswd">New password:</label><br />
             <input type="text" onChange={(event) => {setChangePasswd({...changePasswd, NewPasswd: event.target.value})}}/><br />
             <label htmlFor="ConfNewPasswd">Re-enter new password:</label><br />
             <input type="text" onChange={(event) => {setChangePasswd({...changePasswd, ReNewPasswd: event.target.value})}}/><br />
-            <input type="submit" value="Change Password" name="" id="" />
+            <input className="submitButton" type="submit" value="Change Password" name="SubmitButton" />
         </form>
         <ToastContainer/>
         </>
