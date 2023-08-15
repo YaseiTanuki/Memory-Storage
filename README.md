@@ -25,12 +25,17 @@ If you want this site to run locally<br/>
 1. Install the newest version of Nodejs on your machine.<br/>
 2. Create MongoDB account. And get the connection string.<br/>
 3. Create a file .env inside server directory. Paste your connection string like this:<br/>
-    URI = "Your connection string here".<br/>
-4. Open 2 terminal windows, each in client and server directory.<br/>
-5. Run "npm install" command in both terminal.<br/>
-6. Run "npm run dev" command in both terminal.<br/>
-7. Open your browser and go to: localhost:5173.<br/>
-8. Enjoy
+```
+    URI = "Your connection string here".
+    PORT = 1707
+    TOKEN_SECRET = "your secret string"
+    SESSION_SECRET = "your secret string too"
+```
+5. Open 2 terminal windows, each in client and server directory.<br/>
+6. Run `npm install` command in both terminal.<br/>
+7. Run `npm run dev` command in both terminal.<br/>
+8. Open your browser and go to: `localhost:5173`.<br/>
+9. Enjoy
 
 ## Features
 Currently support features as below, there are still many features that I'm working on. So, this list will be updated in the future.<br/>
@@ -45,6 +50,7 @@ Currently support features as below, there are still many features that I'm work
 Auth-relates feature:
 - [x] Protect routes<br/>
 - [ ] Protect Password<br/>
+- [ ] Session management<br/>
 
 ## Project status
 
