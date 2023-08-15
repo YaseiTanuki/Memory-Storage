@@ -34,17 +34,17 @@ If you want this site to run locally<br/>
 
 ## Features
 Currently support features as below, there are still many features that I'm working on. So, this list will be updated in the future.<br/>
-    Register: [OK]<br/>
-    Login/logout: [OK]<br/>
-    Profile: [OK]<br/>
-    Upload Image: [OK]<br/>
-    View Image: [OK]<br/>
-    Upload product: [OK]<br/>
-    View product: [OK]<br/>
+- [x] Register<br/>
+- [x] Login/logout<br/>
+- [x] Profile<br/>
+- [x] Upload Imagebr/>
+- [x] View Image<br/>
+- [x] Upload product<br/>
+- [x] View product<br/>
 
 Auth-relates feature:
-    Protect routes: [OK]<br/>
-    Protect Password: [UNDONE]<br/>
+- [x] Protect routes<br/>
+- [ ] Protect Password<br/>
 
 ## Project status
 
