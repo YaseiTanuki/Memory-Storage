@@ -19,10 +19,12 @@ export default function RegForm() {
             return toast.error("Re-Enter Password is not correct")
         }
         const publicAxios = usePublicAxios();
-        await publicAxios.post('http://localhost:1707/api/register', {
+        await publicAxios.post('/api/register', {
                 UserName, Password
         }).then((res) => {
             console.log(res.data.message)
+            if(res.data.status == "OK")
+                toast.success("Register sucessful")
         })
         console.log(UserName, Password)
     }
