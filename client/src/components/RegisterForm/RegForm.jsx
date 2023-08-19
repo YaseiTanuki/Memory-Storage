@@ -35,9 +35,9 @@ export default function RegForm() {
             <label htmlFor="UserName">User name</label><br/>
             <input type="text" name="UserName" onChange={(event) => {setUser({...user, UserName: event.target.value})}}/><br />
             <label htmlFor="Passwd">Password</label><br />
-            <input type="text" name="Passwd" onChange={(event) => {setUser({...user, Password: event.target.value})}}/><br />
+            <input type="password" name="Passwd" onChange={(event) => {setUser({...user, Password: event.target.value})}}/><br />
             <label htmlFor="Repasswd">Re-Enter Password</label><br />
-            <input type="text" name="Repasswd" onChange={(event) => {setUser({...user, RePassword: event.target.value})}}/><br />
+            <input type="password" name="Repasswd" onChange={(event) => {setUser({...user, RePassword: event.target.value})}}/><br />
             <input className="submitButton" type="submit" value="Submit" />
         </form>
         <ToastContainer/>
