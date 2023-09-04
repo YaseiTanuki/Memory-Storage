@@ -43,7 +43,7 @@ export default function LoginForm() {
         <div>
             <form className="LoginForm" onSubmit={Login} action="">
                 <label htmlFor="UserName">User name</label><br/>
-                <input type="password" name="UsrName" onChange={(event)=>{setUser({...user, UserName: event.target.value})}}/><br />
+                <input type="text" name="UsrName" onChange={(event)=>{setUser({...user, UserName: event.target.value})}}/><br />
                 <label htmlFor="Passwd">Password</label><br />
                 <input type="password" name="Passwd" onChange={(event)=>{setUser({...user, Password: event.target.value})}}/><br />
                 <input className="submitButton" type="submit" value="Submit" />
