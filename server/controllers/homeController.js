@@ -61,7 +61,7 @@ module.exports = {
             res.json({message: "Sent", status: "OK", list})
         }
         else{
-            res.json({message: "No Product found", status: "NOT OK", list});
+            res.json({message: "No Product found", status: "NOT OK", list, len});
         }
     },
 
