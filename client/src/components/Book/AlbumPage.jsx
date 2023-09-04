@@ -10,7 +10,7 @@ const AlbumPage = React.forwardRef((props, ref) => {
   const Delete = async () => {
     const Title = props.title
     const authAxios = useAuthAxios();
-    await authAxios.delete("http://localhost:1707/api/home/album", {
+    await authAxios.delete("/api/home/album", {
       data: {
         Title
       }
@@ -21,14 +21,26 @@ const AlbumPage = React.forwardRef((props, ref) => {
       }
     })
   }
+
+  function DeletePopup() {
+    if(props.title != "No Page Found")
+      return (
+      <Popup trigger={<button className="more">...</button>}>
+        <button onClick={Delete}>Delete</button>
+      </Popup>
+      )
+    else {
+      return (
+        <></>
+      )
+    }
+  }
     return (
       <div className="alpage" ref={ref}>
         <h2 className="title">{props.title}</h2>
         <img src={props.imgSource}/>
         <p className="description">{props.children}</p>
-        <Popup trigger={<button className="more">...</button>}>
-          <button onClick={Delete}>Delete</button>
-        </Popup>
+        <DeletePopup/>
       </div>
     );
   });
