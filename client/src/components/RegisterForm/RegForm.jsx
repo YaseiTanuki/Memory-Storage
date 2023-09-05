@@ -3,6 +3,7 @@ import './RegFormStyle.css'
 import usePublicAxios from "../../hooks/useAxios/usePublicAxios"
 import CheckReEnterPasswd from "../../utils/CheckReEnterPasswd"
 import {ToastContainer, toast} from'react-toastify'
+import {useNavigate} from 'react-router-dom'
 
 export default function RegForm() {
 
@@ -11,6 +12,8 @@ export default function RegForm() {
         Password: "",
         RePassword: ""
     })
+
+    const Navigate = useNavigate();
 
     const Register = async(event) => {
         event.preventDefault();
@@ -21,10 +24,14 @@ export default function RegForm() {
         const publicAxios = usePublicAxios();
         await publicAxios.post('/api/register', {
                 UserName, Password
-        }).then((res) => {
+        }).then(async(res) => {
             console.log(res.data.message)
             if(res.data.status == "OK")
-                toast.success("Register sucessful")
+            {
+                toast.success("Register sucessful!\n You will be navigated")
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                Navigate("/login")
+            }
         })
         console.log(UserName, Password)
     }
